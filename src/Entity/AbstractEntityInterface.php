@@ -8,9 +8,9 @@ use DateTime;
 
 interface AbstractEntityInterface
 {
-    public function getId() : ?int;
+    public function getId();
 
-    public function setId(?int $id = null) : void;
+    public function setId($id = null) : void;
 
     public function setCreatedAt(DateTime $createdAt) : void;
 

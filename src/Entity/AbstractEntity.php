@@ -5,29 +5,20 @@ declare(strict_types=1);
 namespace Shapecode\Bundle\CronBundle\Entity;
 
 use DateTime;
-use Doctrine\ORM\Mapping as ORM;
 
 abstract class AbstractEntity implements AbstractEntityInterface
 {
     /**
-     * @ORM\Column(type="bigint", options={"unsigned"=true})
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
      * @var string|int|null
      */
     protected $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     *
      * @var DateTime
      */
     protected $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
-     *
      * @var DateTime
      */
     protected $updatedAt;
@@ -38,16 +29,12 @@ abstract class AbstractEntity implements AbstractEntityInterface
         $this->updatedAt = new DateTime();
     }
 
-    public function getId() : ?int
+    public function getId()
     {
-        if ($this->id !== null) {
-            return (int) $this->id;
-        }
-
         return $this->id;
     }
 
-    public function setId(?int $id = null) : void
+    public function setId($id = null) : void
     {
         $this->id = $id;
     }

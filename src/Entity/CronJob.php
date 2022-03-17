@@ -12,9 +12,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 
-/**
- * @ORM\Entity(repositoryClass="Shapecode\Bundle\CronBundle\Repository\CronJobRepository")
- */
 class CronJob extends AbstractEntity implements CronJobInterface
 {
     /**
@@ -25,71 +22,51 @@ class CronJob extends AbstractEntity implements CronJobInterface
     protected $command;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     *
      * @var string|null
      */
     protected $arguments;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     *
      * @var string|null
      */
     protected $description;
 
     /**
-     * @ORM\Column(type="integer", options={"unsigned": true, "default":0})
-     *
      * @var int
      */
     protected $runningInstances = 0;
 
     /**
-     * @ORM\Column(type="integer", options={"unsigned": true, "default":1})
-     *
      * @var int
      */
     protected $maxInstances = 1;
 
     /**
-     * @ORM\Column(type="integer", options={"unsigned": true, "default":1})
-     *
      * @var int
      */
     protected $number = 1;
 
     /**
-     * @ORM\Column(type="string")
-     *
      * @var string
      */
     protected $period;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
-     *
      * @var DateTime|null
      */
     protected $lastUse;
 
     /**
-     * @ORM\Column(type="datetime")
-     *
      * @var DateTime
      */
     protected $nextRun;
 
     /**
-     * @ORM\OneToMany(targetEntity="Shapecode\Bundle\CronBundle\Entity\CronJobResultInterface", mappedBy="cronJob", cascade={"persist", "remove"}, orphanRemoval=true)
-     *
      * @var ArrayCollection|PersistentCollection|Collection|CronJobResult[]
      */
     protected $results;
 
     /**
-     * @ORM\Column(type="boolean", options={"default"=1})
-     *
      * @var bool
      */
     protected $enable = true;

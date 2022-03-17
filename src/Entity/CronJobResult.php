@@ -7,43 +7,29 @@ namespace Shapecode\Bundle\CronBundle\Entity;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="Shapecode\Bundle\CronBundle\Repository\CronJobResultRepository")
- */
 class CronJobResult extends AbstractEntity implements CronJobResultInterface
 {
     /**
-     * @ORM\Column(type="datetime")
-     *
      * @var DateTime
      */
     protected $runAt;
 
     /**
-     * @ORM\Column(type="float")
-     *
      * @var float
      */
     protected $runTime;
 
     /**
-     * @ORM\Column(type="integer")
-     *
      * @var int
      */
     protected $statusCode;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
-     *
      * @var string|null
      */
     protected $output;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Shapecode\Bundle\CronBundle\Entity\CronJob", inversedBy="results", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     *
      * @var CronJobInterface
      */
     protected $cronJob;
